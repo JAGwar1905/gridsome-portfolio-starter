@@ -21,6 +21,7 @@
 </template>
 
 <page-query>
+
 query Post ($path: String!) {
   post: post (path: $path) {
     title
@@ -32,6 +33,8 @@ query Post ($path: String!) {
     }
   }
 }
+
+
 </page-query>
 
 <script>

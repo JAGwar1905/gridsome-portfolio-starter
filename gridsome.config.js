@@ -65,6 +65,28 @@ module.exports = {
         cacheTime: 600000, // default
       }
     },
+    {
+      use: '@zefman/gridsome-source-instagram',
+      options: {
+        username: 'amandamaegray', // Instagram username
+        typeName: 'InstagramPhoto' // The GraphQL type you want the photos to be added under. Defaults to InstagramPhoto
+      }
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'blog/**/*.md',
+        route: '/blog/:year/:month/:day/:slug',
+        remark: {
+          plugins: [
+            [ '@noxify/gridsome-plugin-remark-embed', {
+                'enabledProviders' : ['Youtube', 'Twitter', 'Facebook Post'],
+            }]
+          ]
+        }
+      }
+    }
+
   ],
   templates: {
     Tag: '/tag/:id'
